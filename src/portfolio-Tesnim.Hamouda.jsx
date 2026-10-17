@@ -324,25 +324,41 @@ const LANGUES = [
    file = nom EXACT du fichier image · title (+ title_en) · issuer et year sont optionnels. */
 const CERT_GROUPS = [
   { id: "tech", items: [
-    { file: "AWS Cloud Foundations.png", title: "AWS Cloud Foundations" },
-    { file: "AWS Data Engineering.png", title: "AWS Data Engineering" },
-    { file: "data.png", title: "Data" },
-    { file: "ML.png", title: "Machine Learning" },
+    { file: "AWS Cloud Foundations.png", title: "Cloud Foundations- AWS academy" },
+    { file: "AWS Data Engineering.png", title: "Data Engineering - AWS academy" },
+    { file: "data.png", title: "Introduction to Data and Data Science — 365 Data Science" },
+    { file: "ML.png", title: "The Machine Learning Process A-Z — 365 Data Science" },
   ] },
   { id: "soft", items: [
-    { file: "injaz.png", title: "INJAZ" },
-    { file: "jci.png", title: "JCI" },
-    { file: "soft skills.png", title: "Soft Skills" },
+    { file: "injaz.png", title: "Company Program - INJAZ Tunisia " },
+    { file: "jci.png", title: "Commissaire aux Comptes- JCI Zaghouan El Médina" },
+    { file: "soft skills.png", title: "Soft Skills - ANETI & FSM " },
   ] },
 ];
 
-/* Vite bundles every image found in  src/assets/  — matching is case-insensitive (Windows vs Vercel/Linux). */
-const ASSET_MODULES = import.meta.glob("./src/assets/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG}", { eager: true, import: "default" });
-const ASSET_BY_NAME = Object.fromEntries(
-  Object.entries(ASSET_MODULES).map(([path, url]) => [path.split("/").pop().toLowerCase(), url])
+/* Images des certificats : Vite regroupe toutes les images trouvées dans  src/assets/  (ou  assets/  à la racine du projet).
+   La recherche ignore les majuscules, les espaces et une extension doublée (ex. "x.png.png"). */
+const ASSET_MODULES = import.meta.glob(
+  [
+    "./assets/**/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG}",
+    "../assets/**/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG}",
+    "/assets/**/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG}",
+    "/src/**/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG}",
+  ],
+  { eager: true, import: "default" }
 );
-/* fallback: a file placed in  public/assets/  is served from  /assets/<file> */
-const certSrc = (file) => ASSET_BY_NAME[file.toLowerCase()] || `/assets/${encodeURIComponent(file)}`;
+const normName = (name) => name.toLowerCase().replace(/(\.(png|jpe?g|webp))+$/g, "").replace(/[^a-z0-9]/g, "");
+const ASSET_BY_NAME = {};
+Object.entries(ASSET_MODULES).forEach(([path, url]) => { ASSET_BY_NAME[normName(path.split("/").pop())] = url; });
+/* secours : un fichier placé dans  public/assets/  est servi depuis  /assets/<fichier> */
+const certSrc = (file) => ASSET_BY_NAME[normName(file)] || `/assets/${encodeURIComponent(file)}`;
+
+if (typeof window !== "undefined") {
+  const missing = CERT_GROUPS.flatMap((g) => g.items).filter((c) => !ASSET_BY_NAME[normName(c.file)]).map((c) => c.file);
+  if (missing.length) {
+    console.warn("[Certificats] images introuvables :", missing, "— images détectées par le site :", Object.keys(ASSET_MODULES));
+  }
+}
 
 const NAV = [
   { id: "top", label: "Accueil" },
