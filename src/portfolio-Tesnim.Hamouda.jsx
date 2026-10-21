@@ -243,20 +243,84 @@ const PROJECTS = [
 ];
 
 const SKILLS = [
-  { cat: "Data Science & Analyse", Icon: Code, theme: T.red,
-    items: ["Python", "Pandas", "NumPy", "SQL", "Analyse exploratoire (EDA)", "Nettoyage & préparation", "Feature Engineering"] },
-  { cat: "Machine Learning", Icon: BrainCircuit, theme: T.ink,
-    items: ["Scikit-learn", "Classification", "Régression", "Modélisation prédictive", "Validation croisée", "AUC · AP · F1-score"] },
-  { cat: "Deep Learning & GNN", Icon: Network, theme: T.wine,
-    items: ["PyTorch", "PyTorch Geometric", "Graph Neural Networks", "Embeddings", "Link Prediction", "TensorFlow (bases)"] },
-  { cat: "Graphes de connaissances", Icon: Share2, theme: T.rose,
-    items: ["Neo4j", "Cypher", "Modélisation de graphes", "Analyse des relations entre entités"] },
-  { cat: "Data Engineering & Déploiement", Icon: Server, theme: T.red,
-    items: ["Pipelines ETL", "APIs REST", "Flask", "Docker", "Streamlit"] },
-  { cat: "Bases de données", Icon: Database, theme: T.ink,
-    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis"] },
-  { cat: "Outils", Icon: Wrench, theme: T.wine,
-    items: ["Jupyter Notebook", "Google Colab", "Git"] },
+  {
+    cat: "Data Science & Analyse",
+    Icon: Code,
+    theme: T.red,
+    items: [
+      "Python", "Pandas", "NumPy", "SQL",
+      "Analyse exploratoire (EDA)",
+      "Nettoyage & préparation",
+      "Feature Engineering"
+    ]
+  },
+  {
+    cat: "Machine Learning",
+    Icon: BrainCircuit,
+    theme: T.ink,
+    items: [
+      "Scikit-learn", "Classification", "Régression",
+      "SVM", "Détection d'anomalies",
+      "Modélisation prédictive", "Validation croisée",
+      "AUC · AP · F1-score"
+    ]
+  },
+  {
+    cat: "Deep Learning & GNN",
+    Icon: Network,
+    theme: T.wine,
+    items: [
+      "PyTorch", "PyTorch Geometric",
+      "Graph Neural Networks", "Embeddings",
+      "Link Prediction", "TensorFlow "
+    ]
+  },
+  {
+    cat: "IA générative & Agents IA",
+    Icon: BrainCircuit,
+    theme: T.rose,
+    items: [
+      "LLM", "RAG", "Gemini API",
+      "Prompt Engineering", "Agents IA"
+    ]
+  },
+  {
+    cat: "Graphes de connaissances",
+    Icon: Share2,
+    theme: T.rose,
+    items: [
+      "Neo4j", "Cypher", "Modélisation de graphes",
+      "Analyse des relations entre entités"
+    ]
+  },
+  {
+    cat: "Data Engineering & Déploiement",
+    Icon: Server,
+    theme: T.red,
+    items: [
+      "Pipelines ETL", "APIs REST",
+      "Node.js", "Flask", "FastAPI",
+      "Socket.IO", "Docker", "MLflow", "Streamlit"
+    ]
+  },
+  {
+    cat: "Bases de données",
+    Icon: Database,
+    theme: T.ink,
+    items: [
+      "PostgreSQL", "MySQL", "MongoDB", "Redis"
+    ]
+  },
+  {
+    cat: "Outils & Environnements",
+    Icon: Wrench,
+    theme: T.wine,
+    items: [
+      "Jupyter Notebook", "Google Colab",
+      "Anaconda", "VS Code",
+      "Git", "GitHub", "Postman"
+    ]
+  },
 ];
 
 const EXPERIENCE = [
