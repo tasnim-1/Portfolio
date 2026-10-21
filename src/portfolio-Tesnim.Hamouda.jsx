@@ -429,12 +429,13 @@ const PROJECTS_EN = [
 
 const SKILLS_EN = [
   { cat: "Data Science & Analysis", items: ["Python", "Pandas", "NumPy", "SQL", "Exploratory analysis (EDA)", "Data cleaning & preparation", "Feature Engineering"] },
-  { cat: "Machine Learning", items: ["Scikit-learn", "Classification", "Regression", "Predictive modeling", "Cross-validation", "AUC · AP · F1-score"] },
+  { cat: "Machine Learning", items: ["Scikit-learn", "Classification", "Regression", "Predictive modeling","SVM", "Cross-validation", "AUC · AP · F1-score"] },
+  { cat: "IA générative & Agents IA", items: ["LLM"," RAG", "Gemini API", "Prompt Engineering","Agents IA"] },
   { cat: "Deep Learning & GNN", items: ["PyTorch", "PyTorch Geometric", "Graph Neural Networks", "Embeddings", "Link Prediction", "TensorFlow (basics)"] },
   { cat: "Knowledge Graphs", items: ["Neo4j", "Cypher", "Graph modeling", "Entity relationship analysis"] },
-  { cat: "Data Engineering & Deployment", items: ["ETL pipelines", "REST APIs", "Flask", "Docker", "Streamlit"] },
+  { cat: "Data Engineering & Deployment", items: ["ETL pipelines", "REST APIs", "Flask", "Docker", "Streamlit","Node.js ", "Socket.IO"] },
   { cat: "Databases", items: ["PostgreSQL", "MySQL", "MongoDB", "Redis"] },
-  { cat: "Tools", items: ["Jupyter Notebook", "Google Colab", "Git"] },
+  { cat: "Tools", items: ["Docker","Jupyter Notebook", "Google Colab", "Anaconda","MLflow","Git/GitHub"] },
 ];
 
 const EXPERIENCE_EN = [
